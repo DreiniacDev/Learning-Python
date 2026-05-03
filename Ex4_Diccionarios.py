@@ -29,20 +29,25 @@ while True:
     elif opcion == "4":
         nombre = input("Buscar: ")
         if nombre in agenda:
-            print(f"{nombre}: {telefono}")
+            telefono_actual = agenda[nombre]
+            print(f"{nombre}: {agenda[nombre]}")
             while True:
                 print("1. Modificar nombre")
                 print("2. Modificar teléfono")
-                print("3. Mofificar ambos")
+                print("3. Modificar ambos")
                 print("4. Salir")
                 opcion = input("Elige una opción: ")
                 if opcion == "1":
-                    agenda ["nombre"] = input("Nuevo nombre: ")
+                    nuevo_nombre = input("Nuevo nombre: ")
+                    del agenda[nombre]
+                    agenda[nuevo_nombre] = telefono_actual
                 elif opcion == "2":
-                    agenda ["telefono"] = input("Nuevo teléfono: ")
+                    agenda [nombre] = input("Nuevo teléfono: ")
                 elif opcion == "3":
-                    agenda ["nombre"] = input("Nuevo nombre: ")
-                    agenda ["telefono"] = input("Nuevo teléfono: ")
+                    del agenda[nombre]
+                    nuevo_nombre = input("Nuevo nombre: ")
+                    nuevo_tel = input("Nuevo teléfono: ")
+                    agenda[nuevo_nombre] = nuevo_tel
                 elif opcion == "4":
                     break
         else:
